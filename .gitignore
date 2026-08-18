@@ -1,0 +1,5 @@
+# sorgenti pesanti che non servono online
+logo-sorgente-whatsapp.jpeg
+sito/assets/img/logo-originale-scontornato.png
+__pycache__/
+.DS_Store
