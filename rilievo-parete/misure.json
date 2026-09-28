@@ -1,0 +1,213 @@
+{
+  "nota": "px_raddrizzata = pixel della foto 03-parete-raddrizzata.jpg; unita = modulo largo 1000 (nei documenti 100).",
+  "camera": {
+    "focale_px_stimata": 1150.0,
+    "fuga_orizzontali_foto_originale": [
+      15000.0,
+      843.0
+    ],
+    "direzione_verticali": [
+      -0.0025,
+      1.0
+    ],
+    "imbardata_gradi": -4.5659937601650435,
+    "rollio_gradi": 0.17109105529335902,
+    "punto_principale_raddrizzata": [
+      498.7,
+      346.9
+    ]
+  },
+  "misurato_px_raddrizzata": {
+    "cima_colonne_y": 79,
+    "fondo_trave_y": 72,
+    "fascia_alto_y": 453,
+    "fascia_fondo_y": 490,
+    "colonne_fronte_x": {
+      "9|8": [
+        293,
+        365
+      ],
+      "8|7": [
+        650,
+        718
+      ],
+      "7|6": [
+        1005,
+        1077
+      ]
+    },
+    "fianchi_visibili": {
+      "9|8 lato destro": [
+        365,
+        371
+      ],
+      "8|7 lato sinistro": [
+        645,
+        650
+      ],
+      "7|6 lato sinistro": [
+        993,
+        1005
+      ],
+      "lati opposti": "nessuno"
+    },
+    "denti_fascia": {
+      "9|8": {
+        "da": 262,
+        "a": 395,
+        "piano": [
+          310,
+          345
+        ],
+        "fondo_y": 510
+      },
+      "8|7": {
+        "da": 628,
+        "a": 755,
+        "piano": [
+          680,
+          705
+        ],
+        "fondo_y": 506.5
+      },
+      "7|6": {
+        "da": 988,
+        "a": 1115,
+        "piano": [
+          1035,
+          1065
+        ],
+        "fondo_y": 508
+      }
+    },
+    "numeri_centro_x": {
+      "9": 155.3,
+      "8": 511.8,
+      "7": 856.8,
+      "6": 1206.5
+    },
+    "aperture_telo": {
+      "8": {
+        "x": [
+          369,
+          643
+        ],
+        "y": [
+          105,
+          238
+        ]
+      },
+      "7": {
+        "x": [
+          726,
+          997
+        ],
+        "y": [
+          100,
+          231
+        ]
+      }
+    },
+    "passi": {
+      "numeri_parete": [
+        356.5,
+        345.0,
+        349.7
+      ],
+      "colonne": [
+        355,
+        357
+      ],
+      "denti_fascia": [
+        363,
+        360
+      ]
+    }
+  },
+  "modello_unita": {
+    "larghezza_modulo": 1000,
+    "colonna": 166,
+    "luce_tra_colonne": 668,
+    "fascia_alto": 876,
+    "fascia_fondo": 963,
+    "fondo_dente": 1005,
+    "dente_larghezza": 300,
+    "dente_piano": 70,
+    "apertura_telo_approssimata": {
+      "x": [
+        179,
+        821
+      ],
+      "y": [
+        55,
+        365
+      ]
+    },
+    "sagoma": [
+      [
+        0,
+        0
+      ],
+      [
+        1000,
+        0
+      ],
+      [
+        1000,
+        987.4695652173913
+      ],
+      [
+        952.0,
+        1005
+      ],
+      [
+        882.0,
+        1005
+      ],
+      [
+        767.0,
+        963
+      ],
+      [
+        233.0,
+        963
+      ],
+      [
+        118.0,
+        1005
+      ],
+      [
+        48.0,
+        1005
+      ],
+      [
+        0,
+        987.4695652173913
+      ]
+    ]
+  },
+  "profondita_stimate_unita": {
+    "valori": {
+      "parete": 0,
+      "colonne": 65,
+      "fascia": 110
+    },
+    "intervalli": {
+      "colonne": [
+        50,
+        90
+      ],
+      "fascia": [
+        80,
+        140
+      ]
+    },
+    "rapporti_di_scala": {
+      "colonne_su_parete": 1.022,
+      "fascia_su_parete": 1.037,
+      "fascia_su_colonne": 1.015
+    },
+    "distanza_camera_parete": " ≈ 2,75 × larghezza modulo"
+  },
+  "scala_reale_grezza": "modulo largo circa 4,3-4,9 m (stimato da persona e panche, ±20%): da confermare con una misura"
+}

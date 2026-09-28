@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 1040 1045" width="1040" height="1045">
+  <!-- Sagoma della campata tipo, vista frontale. Unità: larghezza modulo = 1000. -->
+  <rect x="-20" y="-20" width="1040" height="1045" fill="#000"/>
+  <polygon id="sagoma" points="0,0.0 1000,0.0 1000,987.5 952,1005.0 882,1005.0 767,963.0 233,963.0 118,1005.0 48,1005.0 0,987.5" fill="#fff"/>
+</svg>
