@@ -39,7 +39,8 @@ rilievo-parete/
 │   ├── livello-1-parete-arretrata.png   ┐
 │   ├── livello-2-colonne.png            ├ un PNG per piano, stessa tela: si sovrappongono al pixel
 │   ├── livello-3-fascia-gialla.png      ┘
-│   └── livello-0-apertura-telo-APPROSSIMATA.png
+│   ├── livello-0-apertura-telo-APPROSSIMATA.png
+│   └── settore/                         settore per l'impianto contiguo (vedi sotto)
 ├── schemi/
 │   ├── schema-proporzioni.png           prospetto frontale quotato
 │   ├── schema-profondita.png            pianta + sezione: i tre piani
@@ -160,6 +161,30 @@ la fascia circa 40–60 cm. **Da confermare con una misura sul posto.**
   `livello-*`), così ogni piano si può adattare per conto suo.
 - Nella foto, le parti più vicine appaiono più grandi del 2–4%. Le larghezze le ho misurate sul piano
   delle colonne e la fascia sul suo piano, quindi l'effetto sulla sagoma resta **sotto l'1%**.
+
+---
+
+## 3b. Settore per l'impianto contiguo (campate 1–9)
+
+Con le campate una accanto all'altra, la maschera con le **due colonne intere** si sovrapporrebbe
+alla vicina sulla colonna in comune. Per l'impianto il **settore** va **dal centro di una colonna al
+centro della successiva**: la campata più mezza colonna per lato. I 9 settori si affiancano senza
+buchi e senza sovrapposizioni.
+
+In `maschere/settore/`:
+
+| file | cosa |
+|---|---|
+| `settore-maschera.png` | bianco = proietta, nero = no · 1668 × 2010 px, senza margini (il riquadro è il settore) |
+| `settore-maschera-alfa.png` | stessa sagoma, bianca su fondo trasparente |
+| `settore-livello-1/2/3-*.png` | parete arretrata, mezze colonne, fascia gialla: stessa tela, si sovrappongono al pixel |
+| `settore.svg` | la sagoma in vettoriale |
+| `settore-verifica-su-foto.jpg` | il settore sulla campata 8 della foto raddrizzata |
+
+Proporzioni del settore (unità come sopra, modulo = 100): larghezza **83,4** (= passo delle colonne),
+mezza colonna **8,3** per lato, altezza **100,5** in asse colonna, **96,3** al fondo della fascia.
+
+Restano fuori dai 9 settori le due mezze colonne alle estremità, a sinistra della 9 e a destra della 1.
 
 ---
 

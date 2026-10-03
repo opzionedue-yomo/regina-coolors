@@ -186,6 +186,50 @@
       ]
     ]
   },
+  "settore_contiguo_unita": {
+    "descrizione": "da asse colonna ad asse colonna (campata + mezza colonna per lato)",
+    "larghezza": 834,
+    "altezza": 1005,
+    "mezza_colonna": 83.0,
+    "png_px": [
+      1668,
+      2010
+    ],
+    "sagoma": [
+      [
+        0,
+        0
+      ],
+      [
+        834,
+        0
+      ],
+      [
+        834,
+        1005
+      ],
+      [
+        799,
+        1005
+      ],
+      [
+        684,
+        963
+      ],
+      [
+        150,
+        963
+      ],
+      [
+        35,
+        1005
+      ],
+      [
+        0,
+        1005
+      ]
+    ]
+  },
   "profondita_stimate_unita": {
     "valori": {
       "parete": 0,

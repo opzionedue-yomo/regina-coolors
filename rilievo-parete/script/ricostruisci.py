@@ -291,6 +291,51 @@ d.text((40, im.height - 41), 'Sono stime da una sola foto: servono per capire l\
 im.save(SCHEMI / 'schema-profondita.png')
 
 # ---------------------------------------------------------------------------
+# 8b. Settore per l'impianto contiguo (campate 1-9): da asse colonna ad asse colonna
+#     = campata + mezza colonna per lato; 9 settori si affiancano senza sovrapporsi.
+# ---------------------------------------------------------------------------
+PASSO = 834                       # passo colonne in unità (356 px / 427 px x 1000)
+SET = (MASC / 'settore'); SET.mkdir(exist_ok=True)
+SETTORE = [(0, 0), (PASSO, 0), (PASSO, YH), (PASSO - HF, YH), (PASSO - HT, YB),
+           (HT, YB), (HF, YH), (0, YH)]
+S_FASCIA = [(0, YT), (PASSO, YT)] + SETTORE[2:]
+S_COLONNE = [[(0, 0), (C / 2, 0), (C / 2, YT), (0, YT)],
+             [(PASSO - C / 2, 0), (PASSO, 0), (PASSO, YT), (PASSO - C / 2, YT)]]
+S_PARETE = [(C / 2, 0), (PASSO - C / 2, 0), (PASSO - C / 2, YT), (C / 2, YT)]
+SS, AA = 2, 4                     # 2 px per unità; disegno a 4x e riduco per bordi morbidi
+
+
+def settore_png(polys, nome, alfa=False):
+    big = Image.new('L', (PASSO * SS * AA, YH * SS * AA), 0); d = ImageDraw.Draw(big)
+    for p in polys: d.polygon([(u * SS * AA, v * SS * AA) for u, v in p], fill=255)
+    m = big.resize((PASSO * SS, YH * SS), Image.LANCZOS)
+    if alfa:
+        out = Image.new('RGBA', m.size, (255, 255, 255, 0)); out.putalpha(m); m = out
+    m.save(SET / nome)
+
+
+settore_png([SETTORE], 'settore-maschera.png')
+settore_png([SETTORE], 'settore-maschera-alfa.png', alfa=True)
+settore_png([S_PARETE], 'settore-livello-1-parete-arretrata.png')
+settore_png(S_COLONNE, 'settore-livello-2-mezze-colonne.png')
+settore_png([S_FASCIA], 'settore-livello-3-fascia-gialla.png')
+(SET / 'settore.svg').write_text(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {PASSO} {YH}" width="{PASSO}" height="{YH}">
+  <!-- Settore per impianto contiguo: da asse colonna ad asse colonna. Unità come maschera.svg. -->
+  <rect width="{PASSO}" height="{YH}" fill="#000"/>
+  <polygon id="settore" points="{pts(SETTORE)}" fill="#fff"/>
+</svg>
+''')
+# verifica: settore sulla campata 8 della foto raddrizzata (da asse 9|8 ad asse 8|7)
+foto = Image.fromarray(cv2.cvtColor(radd, cv2.COLOR_BGR2RGB)).convert('RGBA')
+ov = Image.new('RGBA', foto.size, (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
+xs = X8 + C / 2 * PX
+q = [(xs + u * PX, Y0 + v * PX) for u, v in SETTORE]
+d.polygon(q, fill=(255, 0, 200, 70)); d.line(q + [q[0]], fill=(255, 0, 200, 255), width=3)
+for x in (xs, xs + PASSO * PX):
+    d.line([(x, Y0 - 15), (x, Y0 + YH * PX + 15)], fill=(0, 200, 100, 255), width=1)
+Image.alpha_composite(foto, ov).convert('RGB').save(SET / 'settore-verifica-su-foto.jpg', quality=92)
+
+# ---------------------------------------------------------------------------
 # 9. Misure in JSON
 # ---------------------------------------------------------------------------
 misure = {
@@ -315,6 +360,9 @@ misure = {
                           dente_larghezza=2 * HT, dente_piano=2 * HF,
                           apertura_telo_approssimata=dict(x=[AP[0], AP[2]], y=[AP[1], AP[3]]),
                           sagoma=SAGOMA),
+    'settore_contiguo_unita': dict(descrizione='da asse colonna ad asse colonna (campata + mezza colonna per lato)',
+                                   larghezza=PASSO, altezza=YH, mezza_colonna=C / 2,
+                                   png_px=[PASSO * SS, YH * SS], sagoma=SETTORE),
     'profondita_stimate_unita': dict(valori=PROF, intervalli=PROF_RANGE,
                                      rapporti_di_scala=dict(colonne_su_parete=1.022, fascia_su_parete=1.037, fascia_su_colonne=1.015),
                                      distanza_camera_parete=' ≈ 2,75 × larghezza modulo'),
